@@ -70,7 +70,7 @@ public class Billiards extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			for(Thread hilo : hilobolas){
+			for(Thread hilo : hiloBolas){
 				hilo.start();
 			}
 
