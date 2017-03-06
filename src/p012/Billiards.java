@@ -23,6 +23,7 @@ public class Billiards extends JFrame {
 	// Grupo L11 
 	private final int N_BALL = 11+3;
 	private Ball[] balls;
+	private Thread[] hiloBolas;
 
 	public Billiards() {
 
@@ -55,7 +56,14 @@ public class Billiards extends JFrame {
 	}
 
 	private void initBalls() {
-		// TODO init balls
+		balls = new Ball[N_BALL];
+		hiloBolas = new Thread[N_BALL];
+		for (int i = 0; i < balls.length; i++) {
+			balls[i] = new Ball();
+			hiloBolas[i] = new Thread(new HiloBola(balls[i]));	
+		}
+		board.setBalls(balls);
+				
 	}
 
 	private class StartListener implements ActionListener {
