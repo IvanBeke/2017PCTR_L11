@@ -4,7 +4,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Ball {
-	
+
 	private String Ball = "Ball.png";
 
 	private double x, y, dx, dy;
@@ -35,9 +35,9 @@ public class Ball {
 		}
 		x += dx;
 		y += dy;
-		
-		assert compruebaPosicion():"la bola no se encuentra dentro del tablero";
-		
+
+		assert compruebaPosicion() : "la bola no se encuentra dentro del tablero";
+
 	}
 
 	public synchronized void reflect() {
@@ -53,7 +53,7 @@ public class Ball {
 		if (Math.abs(y - Board.TOPBOARD) < Math.abs(dy)) {
 			fi = -fi;
 		}
-		assert compruebaPosicion():"la bola no se encuentra dentro del tablero";
+		assert compruebaPosicion() : "la bola no se encuentra dentro del tablero";
 	}
 
 	public int getX() {
