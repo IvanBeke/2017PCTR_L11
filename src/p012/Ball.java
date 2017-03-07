@@ -18,6 +18,7 @@ public class Ball {
 		y = Billiards.Height / 2 - 16;
 		v = 5;
 		fi = Math.random() * Math.PI * 2;
+		assert compruebaPosicion() : "la bola no se encuentra dentro del tablero";
 	}
 
 	private boolean compruebaPosicion() {
