@@ -14,7 +14,7 @@ public class HiloBola implements Runnable {
 			bola.move();
 			bola.reflect();
 			try {
-				Thread.sleep(100);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				return;
 			}
