@@ -20,10 +20,10 @@ public class Billiards extends JFrame {
 
 	private static Board board;
 
-	// Grupo L11 
-	private final int N_BALL = 11+3;
-	private Ball[] balls;
-	private Thread[] hiloBolas;
+	// Grupo L11
+	private final int N_BALL = 11 + 3;
+	private Ball[] balls = null;
+	private Thread[] hiloBolas = null;
 
 	public Billiards() {
 
@@ -60,17 +60,21 @@ public class Billiards extends JFrame {
 		hiloBolas = new Thread[N_BALL];
 		for (int i = 0; i < balls.length; i++) {
 			balls[i] = new Ball();
-			hiloBolas[i] = new Thread(new HiloBola(balls[i]));	
+			hiloBolas[i] = new Thread(new HiloBola(balls[i]));
 		}
 		board.setBalls(balls);
-				
+
 	}
 
 	private class StartListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
-			for(Thread hilo : hiloBolas){
+
+			if (hiloBolas != null) {
+				initBalls();
+			}
+
+			for (Thread hilo : hiloBolas) {
 				hilo.start();
 			}
 
@@ -80,8 +84,9 @@ public class Billiards extends JFrame {
 	private class StopListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			for(Thread hilo : hiloBolas){
-				hilo.interrupt();;
+			for (Thread hilo : hiloBolas) {
+				hilo.interrupt();
+				;
 			}
 
 		}
@@ -89,7 +94,7 @@ public class Billiards extends JFrame {
 
 	public static void main(String[] args) {
 		new Billiards();
-		while(true){
+		while (true) {
 			board.repaint();
 		}
 	}
