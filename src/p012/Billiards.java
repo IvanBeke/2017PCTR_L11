@@ -18,7 +18,7 @@ public class Billiards extends JFrame {
 
 	private JButton b_start, b_stop;
 
-	private Board board;
+	private static Board board;
 
 	// Grupo L11 
 	private final int N_BALL = 11+3;
@@ -89,5 +89,8 @@ public class Billiards extends JFrame {
 
 	public static void main(String[] args) {
 		new Billiards();
+		while(true){
+			board.repaint();
+		}
 	}
 }
